@@ -1,26 +1,127 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <title>Quiz App</title>
 </head>
 
 <body>
-    <button id="start"> </button>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-    <script src="" async defer></script>
+
+    <div class="container m-4">
+        <header>
+
+            <div class="row justify-content-between">
+                <div class="row-4" id="highScores">
+                    View Highscores
+
+                </div>
+                <div class="row-4" id="timer">
+                    Time: 75</div>
+            </div>
+
+
+
+        </header>
+
+
+        <!-- Start Element -->
+        <section class="row justify-content-center m-4 p-4" id="start" style="display: block;">
+
+            <div class="col text-center mb-3">
+
+                <h1>Coding Quiz Challenge</h1>
+
+            </div>
+
+
+            <div class="col text-center m-2">
+
+                <h4>Try to answer the following code-related questions within the time <br> limit. keep in mind that incorrect answers will penalize your score/time <br> by ten seconds!
+                </h4>
+
+            </div>
+
+            <div class="col d-flex justify-content-center  m-2 p-2">
+
+                <button class="btn btn-primary" id="startButton">Start Quiz</button>
+            </div>
+
+
+        </section>
+
+        <!-- Quiz Element -->
+
+        <section class="row justify-content-center  m-4 p-4" id="quiz" style="display: none;">
+            <h3 class="col text-center" id="question">
+
+            </h3>
+
+            <div class="col text-center" id="answers">
+
+            </div>
+
+        </section>
+
+        <!-- Done Element -->
+        <section class="row justify-content-center m-5 " id="done" style="display: none;">
+            <h1 class="col ml-5">All done!</h1>
+            <h4 class="col ml-5" id="userScore">Your final score is </h4>
+            <div class="col  ml-5">
+                <label for="name">Enter initials</label>
+
+                <input type="text" name="name" id="name">
+                <button id="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+        </section>
+
+        <!-- Score Element -->
+
+        <section class="row justify-content-center  m-4 p-4" id="score" style="display: none;">
+            <h1 class="ml-5">Highscores</h1>
+            <ol id="userScores">
+            </ol>
+            <button class="btn btn-primary ml-5" id="back">Go back</button>
+            <button class="btn btn-primary ml-5" id="clear">Clear Highscores</button>
+        </section>
+
+
+        <!-- Wrong Element -->
+
+        <section class="row justify-content-center  m-4 p-4" id="wrong" style="display: none;">
+            <hr>
+            <h4>wrong</h4>
+        </section>
+
+        <!-- correct Element -->
+
+        <section id="correct" style="display: none;">
+            <hr>
+            <h4>Correct!</h4>
+        </section>
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="./script.js"></script>
+
 </body>
 
 </html>
