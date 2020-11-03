@@ -187,8 +187,16 @@ function loadQuestion() {
 
 }
 
+// Adding the submit button, toggles upon completion of quiz, the page knows.
+// Submits the name to local storage
+submitButton.addEventListener("click", function() {
+        toggleDone()
+        var name = nameInput.value.trim()
+        localStorage.setItem(name, timer)
+        toggleScore()
 
-//document.querySelector("#start") 
+    })
+    //document.querySelector("#start") 
 
 
 
