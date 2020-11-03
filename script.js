@@ -26,7 +26,7 @@ var finalScore = 0
 // I wrote my own questions and made them part of an array that I named questions.
 
 var questions = [{
-        question: "In the array \[\"Pizza\", \"Burger\", \"Salad\", \"Fries\"\] what is the index of Salad?"
+        question: "In the array \[\"Pizza\", \"Burger\", \"Salad\", \"Fries\"\] what is the index of Salad?",
         answer: ["1", "4", "2", "3"],
         correct: 3,
     },
