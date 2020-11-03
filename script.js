@@ -154,6 +154,40 @@ function toggleCorrect() {
 
     }
 }
+
+// Questions are to be made accessible.
+
+
+function loadQuestion() {
+
+    // Loads Questions
+
+    while (answerEl.lastElementChild) {
+        answerEl.removeChild(answerEl.lastElementChild);
+    }
+
+    if (questions[questionNumber]) {
+        questionEl.textContent = questions[questionNumber].question
+
+        questions[questionNumber].answer.forEach(function(element, i) {
+            var answers = document.createElement("button")
+            answers.textContent = element
+            console.log(i)
+            answers.setAttribute("class", "btn btn-primary  p-3 m-2 ")
+            answers.setAttribute("data-index", i)
+            answerEl.appendChild(answers)
+
+        });
+    } else {
+        // toggleDone()
+        // toggleQuiz()
+        finalScore = timer
+        timer = 1
+    }
+
+}
+
+
 //document.querySelector("#start") 
 
 
@@ -163,19 +197,79 @@ function toggleCorrect() {
 
 //addEventListener("click", quiz);
 
-function quiz() {
-
-};
 //Start timer and show question
-// a) question variable- b) timer variable
 
-//User is given question
+// Set timer for quiz
+function time() {
+    // timer = 75
+    console.log(timer)
+    var timerInterval = setInterval(function() {
+        timer--
+        timerEl.textContent = "Time: " + timer
 
-// User gives answer
 
-//either user is right or wrong
-//if answer is correct on to next question.
-//if answer is incorrect subtract time from timer as penalty
+        if (timer == 0) {
+            clearInterval(timerInterval)
+            toggleQuiz()
+            toggleDone()
+        }
 
-//For game over either time=0 or all questions have been answered 
-// Once game over, be able to save both initials and score.
+    }, 1000)
+
+
+}
+
+// Starts the quiz
+buttonEl.addEventListener("click", function() {
+    timer = 75
+    questionNumber = 0
+    console.log(timer, questionNumber)
+    time()
+
+    toggleStart()
+    toggleQuiz()
+
+    loadQuestion()
+
+
+
+    //User is given questions
+
+    answerEl.addEventListener("click", function(event) {
+            var element = event.target
+
+            if (element.matches("button")) {
+                var index = element.getAttribute("data-index")
+
+                console.log(index, questions[questionNumber].correct)
+
+                if (index == questions[questionNumber].correct) {
+                    questionNumber++
+                    toggleCorrect()
+                    loadQuestion()
+
+                } else {
+                    questionNumber++
+                    timer -= 15
+                    loadQuestion()
+                    toggleWrong()
+                }
+
+            }
+        })
+        //At this point the questions run through and the answers work just fine. 
+        //It just needs the ability to submit using the submit button, as well as the ability to save scores locally. 
+        //I think I'll just use the time left over as the score. 
+        //In comparison to others and their score taking the same quiz under the same conditions/parameters I think their results will speak for themselves. 
+        //as the quiz is only over once all questions are answered and the wrong ones deduct time. 
+        //Therefore no need to reverse anything, the best will have the most time left and so the highest score. 
+        //Lesson learned, no need to try and fix anything that isn't broken.
+        // User gives answer
+
+    //either user is right or wrong
+    //if answer is correct on to next question.
+    //if answer is incorrect subtract time from timer as penalty
+
+    //For game over either time=0 or all questions have been answered 
+    // Once game over, be able to save both initials and score.//
+})
