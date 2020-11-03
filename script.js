@@ -21,7 +21,7 @@ var highScoresWl = document.querySelector("#highScores")
 var questionNumber = 0
 
 var timer = 75
-var finalScore = ""
+var finalScore = (0)
 
 // I wrote my own questions and made them part of an array that I named questions.
 
@@ -91,7 +91,7 @@ function toggleScore() {
 //But first we need to toggle all the elements based on the relevant buttons.
 
 function toggleStart() {
-    // And so we toggle the start Element, Instructions and start button.
+    // Toggles the start Element, Instructions and start button
 
     if (startEl.style.display == "none") {
         startEl.style.display = "block"
@@ -102,7 +102,7 @@ function toggleStart() {
 }
 
 function toggleQuiz() {
-    // We toggle the quiz element.
+    // Toggles the quiz element
     if (quizEl.style.display == "none") {
         quizEl.style.display = "block"
     } else {
@@ -115,7 +115,7 @@ function toggleQuiz() {
 // And if not wrong there is no time penalty and no extra timer related action.
 
 function toggleWrong() {
-    // If user picks the wrong answer, it toggles the wrong element, 1 second timer
+    // If user picked wrong answer, toggles the wrong element, 1 second timer
     if (wrongEl.style.display == "none") {
         wrongEl.style.display = "block"
         var correctTime = 1
@@ -133,9 +133,8 @@ function toggleWrong() {
     }
 }
 
-
 function toggleCorrect() {
-    // If the user picks right answer, toggles the wrong element, 1 second timer
+    // If user picked right answer, toggles the wrong element, 1 second timer
 
     if (correctEl.style.display == "none") {
         correctEl.style.display = "block"
@@ -179,8 +178,8 @@ function loadQuestion() {
 
         });
     } else {
-        //toggleDone()
-        //toggleQuiz()
+        // toggleDone()
+        // toggleQuiz()
         finalScore = timer
         timer = 1
     }
@@ -188,6 +187,7 @@ function loadQuestion() {
 }
 
 // Adding the submit button, toggles upon completion of quiz, the page knows.
+// Submits the name to local storage
 // Submits the name to local storage
 submitButton.addEventListener("click", function() {
     toggleDone()
@@ -203,14 +203,11 @@ backButton.addEventListener("click", function() {
         toggleStart()
         timerEl.textContent = "Time: 75"
     })
-    //document.querySelector("#start") 
-    //addEventListener("click", quiz);
-
-//Start timer
+    //Start timer
 
 // Set timer for quiz
 function time() {
-    timer = 75
+    // timer = 75
     console.log(timer)
     var timerInterval = setInterval(function() {
         timer--
@@ -241,9 +238,6 @@ buttonEl.addEventListener("click", function() {
     loadQuestion()
 
 
-
-    //User is given questions
-
     answerEl.addEventListener("click", function(event) {
         var element = event.target
 
@@ -267,20 +261,12 @@ buttonEl.addEventListener("click", function() {
         }
     })
 
-    // Shows high scores
-    console.log(finalScore)
-    highScoresWl.addEventListener("click", function() {
 
-        toggleScore()
-        toggleStart()
-    })
+})
 
-    console.log(highScoresWl)
-
-    console.log(userScoreEl)
-    console.log(userScores)
-        // Clears local storage
-    clearButton.addEventListener("click", function() {
+console.log(userScores)
+    // Clears local storage
+clearButton.addEventListener("click", function() {
         localStorage.clear()
 
         while (userScores.lastElementChild) {
@@ -290,20 +276,26 @@ buttonEl.addEventListener("click", function() {
         toggleStart()
         toggleScore()
     })
+    // Shows high scores
+console.log(finalScore)
+highScoresWl.addEventListener("click", function() {
 
-    //At this point the questions run through and the answers work just fine. 
-    //It just needs the ability to submit using the submit button, as well as the ability to save scores locally. 
-    //I think I'll just use the time left over as the score. 
-    //In comparison to others and their score taking the same quiz under the same conditions/parameters I think their results will speak for themselves. 
-    //as the quiz is only over once all questions are answered and the wrong ones deduct time. 
-    //Therefore no need to reverse anything, the best will have the most time left and so the highest score. 
-    //Lesson learned, no need to try and fix anything that isn't broken.
-    // User gives answer
-
-    //either user is right or wrong
-    //if answer is correct on to next question.
-    //if answer is incorrect subtract time from timer as penalty
-
-    //For game over either time=0 or all questions have been answered 
-    // Once game over, be able to save both initials and score.//
+    toggleScore()
+    toggleStart()
 })
+
+//At this point the questions run through and the answers work just fine. 
+//It just needs the ability to submit using the submit button, as well as the ability to save scores locally. 
+//I think I'll just use the time left over as the score. 
+//In comparison to others and their score taking the same quiz under the same conditions/parameters I think their results will speak for themselves. 
+//as the quiz is only over once all questions are answered and the wrong ones deduct time. 
+//Therefore no need to reverse anything, the best will have the most time left and so the highest score. 
+//Lesson learned, no need to try and fix anything that isn't broken.
+// User gives answer
+
+//either user is right or wrong
+//if answer is correct on to next question.
+//if answer is incorrect subtract time from timer as penalty
+
+//For game over either time=0 or all questions have been answered 
+// Once game over, be able to save both initials and score.//
