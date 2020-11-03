@@ -244,35 +244,55 @@ buttonEl.addEventListener("click", function() {
     //User is given questions
 
     answerEl.addEventListener("click", function(event) {
-            var element = event.target
+        var element = event.target
 
-            if (element.matches("button")) {
-                var index = element.getAttribute("data-index")
+        if (element.matches("button")) {
+            var index = element.getAttribute("data-index")
 
-                console.log(index, questions[questionNumber].correct)
+            console.log(index, questions[questionNumber].correct)
 
-                if (index == questions[questionNumber].correct) {
-                    questionNumber++
-                    toggleCorrect()
-                    loadQuestion()
+            if (index == questions[questionNumber].correct) {
+                questionNumber++
+                toggleCorrect()
+                loadQuestion()
 
-                } else {
-                    questionNumber++
-                    timer -= 15
-                    loadQuestion()
-                    toggleWrong()
-                }
-
+            } else {
+                questionNumber++
+                timer -= 15
+                loadQuestion()
+                toggleWrong()
             }
-        })
-        //At this point the questions run through and the answers work just fine. 
-        //It just needs the ability to submit using the submit button, as well as the ability to save scores locally. 
-        //I think I'll just use the time left over as the score. 
-        //In comparison to others and their score taking the same quiz under the same conditions/parameters I think their results will speak for themselves. 
-        //as the quiz is only over once all questions are answered and the wrong ones deduct time. 
-        //Therefore no need to reverse anything, the best will have the most time left and so the highest score. 
-        //Lesson learned, no need to try and fix anything that isn't broken.
-        // User gives answer
+
+        }
+    })
+
+    // Clears local storage
+    clearButton.addEventListener("click", function() {
+        localStorage.clear()
+
+        while (userScores.lastElementChild) {
+            userScores.removeChild(userScores.lastElementChild)
+        }
+
+        toggleScore()
+        toggleScore()
+    })
+
+    // Shows high scores
+    highScoresWl.addEventListener("click", function() {
+        toggleStart()
+        toggleScore()
+
+    })
+
+    //At this point the questions run through and the answers work just fine. 
+    //It just needs the ability to submit using the submit button, as well as the ability to save scores locally. 
+    //I think I'll just use the time left over as the score. 
+    //In comparison to others and their score taking the same quiz under the same conditions/parameters I think their results will speak for themselves. 
+    //as the quiz is only over once all questions are answered and the wrong ones deduct time. 
+    //Therefore no need to reverse anything, the best will have the most time left and so the highest score. 
+    //Lesson learned, no need to try and fix anything that isn't broken.
+    // User gives answer
 
     //either user is right or wrong
     //if answer is correct on to next question.
