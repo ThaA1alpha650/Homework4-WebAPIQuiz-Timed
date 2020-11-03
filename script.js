@@ -21,7 +21,7 @@ var highScoresWl = document.querySelector("#highScores")
 var questionNumber = 0
 
 var timer = 75
-var finalScore = (0)
+var finalScore = 0
 
 // I wrote my own questions and made them part of an array that I named questions.
 
@@ -58,7 +58,6 @@ function toggleDone() {
 
     }
 }
-
 // Deciding how to measure top score because if I only include the correct answers it doesn't take into account the user that answers the questions the fastest. 
 //Also since the timer counts down and we are looking for a *"High"score*, I'll try to find a way to improve that... I did say TRY!
 
@@ -83,9 +82,9 @@ function toggleScore() {
     } else {
         scoreEl.style.display = "none"
 
+
     }
 }
-
 
 // Need to start the coding quiz using a button on click.
 //But first we need to toggle all the elements based on the relevant buttons.
@@ -178,7 +177,7 @@ function loadQuestion() {
 
         });
     } else {
-        // toggleDone()
+        //toggleDone()
         // toggleQuiz()
         finalScore = timer
         timer = 1
