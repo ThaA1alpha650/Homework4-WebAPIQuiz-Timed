@@ -1,0 +1,25 @@
+#high-score-link {
+    float: left;
+}
+
+#timer {
+    float: right;
+}
+
+.background {
+    margin: 30px 15px 30px 15px;
+    background-color: #f5f5dc;
+    padding: 30px;
+    width: auto;
+    text-align: center;
+}
+
+.layout {
+    padding: 15px;
+    width: auto;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+}

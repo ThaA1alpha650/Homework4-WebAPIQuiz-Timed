@@ -18,6 +18,35 @@ var highScoresWl = document.querySelector("#highScores")
 
 // Declared and assigning my variables.
 
+var questionNumber = 0
+
+var timer = 75
+var finalScore = 0
+
+// I wrote my own questions and made them part of an array that I named questions.
+
+var questions = [{
+        question: "In the array \[\"Pizza\", \"Burger\", \"Salad\", \"Fries\"\] what is the index of Salad?"
+        answer: ["1", "4", "2", "3"],
+        correct: 3,
+    },
+    {
+        question: "Where does the <script></script> tag go in your HTML page?",
+        answer: ["In the </header>", "Before the closing </body> tag", "Anywhere", "In the <nav></nav> bar"],
+        correct: 2,
+    },
+    {
+        question: "To use jQuery you need to ______?",
+        answer: ["Know some javaScript", "Link the jQuery CDN", "Use dev tools for debugging", "all of the above"],
+        correct: 4,
+    },
+    {
+        question: "String values must be enclosed within _______ when being assigned to variables.",
+        answer: ["commas", "curly brackets", "parentheses", "square brackets"],
+        correct: 3,
+    }
+]
+
 
 //Need to start the coding quiz using a button on click.
 //document.querySelector("#start") 
