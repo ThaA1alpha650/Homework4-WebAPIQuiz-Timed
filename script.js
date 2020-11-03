@@ -21,7 +21,7 @@ var highScoresWl = document.querySelector("#highScores")
 var questionNumber = 0
 
 var timer = 75
-var finalScore = 0
+var finalScore = ""
 
 // I wrote my own questions and made them part of an array that I named questions.
 
@@ -179,8 +179,8 @@ function loadQuestion() {
 
         });
     } else {
-        // toggleDone()
-        // toggleQuiz()
+        //toggleDone()
+        //toggleQuiz()
         finalScore = timer
         timer = 1
     }
@@ -190,26 +190,27 @@ function loadQuestion() {
 // Adding the submit button, toggles upon completion of quiz, the page knows.
 // Submits the name to local storage
 submitButton.addEventListener("click", function() {
-        toggleDone()
-        var name = nameInput.value.trim()
-        localStorage.setItem(name, timer)
-        toggleScore()
+    toggleDone()
+    var name = nameInput.value.trim()
+    localStorage.setItem(name, timer)
+    toggleScore()
 
+})
+
+// Returns user to home screen
+backButton.addEventListener("click", function() {
+        toggleScore()
+        toggleStart()
+        timerEl.textContent = "Time: 75"
     })
     //document.querySelector("#start") 
+    //addEventListener("click", quiz);
 
-
-
-
-
-
-//addEventListener("click", quiz);
-
-//Start timer and show question
+//Start timer
 
 // Set timer for quiz
 function time() {
-    // timer = 75
+    timer = 75
     console.log(timer)
     var timerInterval = setInterval(function() {
         timer--
@@ -266,7 +267,19 @@ buttonEl.addEventListener("click", function() {
         }
     })
 
-    // Clears local storage
+    // Shows high scores
+    console.log(finalScore)
+    highScoresWl.addEventListener("click", function() {
+
+        toggleScore()
+        toggleStart()
+    })
+
+    console.log(highScoresWl)
+
+    console.log(userScoreEl)
+    console.log(userScores)
+        // Clears local storage
     clearButton.addEventListener("click", function() {
         localStorage.clear()
 
@@ -274,15 +287,8 @@ buttonEl.addEventListener("click", function() {
             userScores.removeChild(userScores.lastElementChild)
         }
 
-        toggleScore()
-        toggleScore()
-    })
-
-    // Shows high scores
-    highScoresWl.addEventListener("click", function() {
         toggleStart()
         toggleScore()
-
     })
 
     //At this point the questions run through and the answers work just fine. 
