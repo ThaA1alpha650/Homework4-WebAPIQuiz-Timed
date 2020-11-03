@@ -111,6 +111,49 @@ function toggleQuiz() {
     }
 }
 
+// In terms of reactions wrong not only triggers a wrong alert and then a move on to the next question, I also triggers the time penalty. 
+// And if not wrong there is no time penalty and no extra timer related action.
+
+function toggleWrong() {
+    // If user picks the wrong answer, it toggles the wrong element, 1 second timer
+    if (wrongEl.style.display == "none") {
+        wrongEl.style.display = "block"
+        var correctTime = 1
+        var timerInterval = setInterval(function() {
+            correctTime--
+            if (correctTime == 0) {
+                clearInterval(timerInterval)
+                toggleWrong()
+            }
+
+        }, 1000)
+    } else {
+        wrongEl.style.display = "none"
+
+    }
+}
+
+
+function toggleCorrect() {
+    // If the user picks right answer, toggles the wrong element, 1 second timer
+
+    if (correctEl.style.display == "none") {
+        correctEl.style.display = "block"
+
+        var correctTime = 1
+        var timerInterval = setInterval(function() {
+            correctTime--
+            if (correctTime == 0) {
+                clearInterval(timerInterval)
+                toggleCorrect()
+            }
+
+        }, 1000)
+    } else {
+        correctEl.style.display = "none"
+
+    }
+}
 //document.querySelector("#start") 
 
 
