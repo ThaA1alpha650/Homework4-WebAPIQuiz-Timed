@@ -59,7 +59,8 @@ function toggleDone() {
     }
 }
 
-// Deciding how to measure top score because if I only include the correct answers it doesnt take into account the user that answers the questions the fastest. Also since the timer counts down and we are looking for a *"High"score*, I'll try to find a way to improve that... I did say TRY!
+// Deciding how to measure top score because if I only include the correct answers it doesn't take into account the user that answers the questions the fastest. 
+//Also since the timer counts down and we are looking for a *"High"score*, I'll try to find a way to improve that... I did say TRY!
 
 function toggleScore() {
 
@@ -86,7 +87,30 @@ function toggleScore() {
 }
 
 
-//Need to start the coding quiz using a button on click.
+// Need to start the coding quiz using a button on click.
+//But first we need to toggle all the elements based on the relevant buttons.
+
+function toggleStart() {
+    // And so we toggle the start Element, Instructions and start button.
+
+    if (startEl.style.display == "none") {
+        startEl.style.display = "block"
+    } else {
+        startEl.style.display = "none"
+
+    }
+}
+
+function toggleQuiz() {
+    // We toggle the quiz element.
+    if (quizEl.style.display == "none") {
+        quizEl.style.display = "block"
+    } else {
+        quizEl.style.display = "none"
+
+    }
+}
+
 //document.querySelector("#start") 
 
 
