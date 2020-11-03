@@ -31,13 +31,17 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+## Here are some screenshots of mine.
 
+![Mine](../Screen-Shot-1.png)
+![Mine2](../Screen-Shot-2.png)
 
 ## Mock-Up
 
 The following animation demonstrates the application functionality:
 
 ![code quiz](./Assets/04-web-apis-homework-demo.gif)
+
 
 
 ## Grading Requirements
