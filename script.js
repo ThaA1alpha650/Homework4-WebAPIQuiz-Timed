@@ -47,6 +47,44 @@ var questions = [{
     }
 ]
 
+function toggleDone() {
+    // Toggles the done element
+    // Displays user score
+    if (doneEl.style.display == "none") {
+        doneEl.style.display = "block"
+        userScoreEl.textContent = "Your final score " + finalScore
+    } else {
+        doneEl.style.display = "none"
+
+    }
+}
+
+// Deciding how to measure top score because if I only include the correct answers it doesnt take into account the user that answers the questions the fastest. Also since the timer counts down and we are looking for a *"High"score*, I'll try to find a way to improve that... I did say TRY!
+
+function toggleScore() {
+
+    // Toggles the score element, Displays top scores
+    while (userScores.lastElementChild) {
+        userScores.removeChild(userScores.lastElementChild);
+    }
+    if (scoreEl.style.display == "none") {
+        scoreEl.style.display = "block"
+
+        Object.keys(localStorage).forEach(element => {
+            var user = document.createElement("li")
+            user.textContent = element + " - " + localStorage.getItem(element)
+            user.setAttribute('class', "bg-secondary text-white p-1 mb-2")
+            userScores.appendChild(user)
+                // console.log(element, element.value )
+
+        });
+
+    } else {
+        scoreEl.style.display = "none"
+
+    }
+}
+
 
 //Need to start the coding quiz using a button on click.
 //document.querySelector("#start") 
